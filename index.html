@@ -1,1 +1,36 @@
-<body></body>
+<body>
+    <canvas id="main" width="1000" height="500"></canvas>
+    <script>
+console.log("Lasso Demo");
+var canvas = document.getElementById("main");
+var ctx = canvas.getContext("2d");
+
+//The resolution is the size of each pixel
+const resolution = 10;
+
+//Draw the grid lines
+function draw_grid(pix_size){
+    const line_width = 1;
+
+    //Draw the vert lines
+    for(let i = 0; i < 1000; i++){
+        ctx.moveTo(i * pix_size, 0);
+        ctx.lineTo(i * pix_size, 500);
+        ctx.lineWidth = line_width;
+        ctx.stroke();
+    }
+
+    //Draw the horz lines
+    for(let i = 0; i < 500; i++){
+        ctx.moveTo(0, i * pix_size);
+        ctx.lineTo(1000, i * pix_size);
+        ctx.lineWidth = line_width;
+        ctx.stroke();
+    }
+}
+
+draw_grid(resolution);
+
+    </script>
+
+</body>
